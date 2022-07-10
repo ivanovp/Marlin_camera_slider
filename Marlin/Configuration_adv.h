@@ -4080,30 +4080,70 @@
  * User-defined buttons to run custom G-code.
  * Up to 25 may be defined.
  */
-//#define CUSTOM_USER_BUTTONS
+#define CUSTOM_USER_BUTTONS
 #if ENABLED(CUSTOM_USER_BUTTONS)
-  //#define BUTTON1_PIN -1
+  #define BUTTON1_PIN 63
   #if PIN_EXISTS(BUTTON1)
-    #define BUTTON1_HIT_STATE     LOW       // State of the triggered button. NC=LOW. NO=HIGH.
+    #define BUTTON1_HIT_STATE     HIGH      // State of the triggered button. NC=LOW. NO=HIGH.
     #define BUTTON1_WHEN_PRINTING false     // Button allowed to trigger during printing?
-    #define BUTTON1_GCODE         "G28"
-    #define BUTTON1_DESC          "Homing"  // Optional string to set the LCD status
+    #define BUTTON1_GCODE         "M118 Button1 X+1\nG91\nG1 X+1\nG90"
+    #define BUTTON1_DESC          "Button1 X+1"  // Optional string to set the LCD status
   #endif
 
-  //#define BUTTON2_PIN -1
+  #define BUTTON2_PIN 40
   #if PIN_EXISTS(BUTTON2)
-    #define BUTTON2_HIT_STATE     LOW
+    #define BUTTON2_HIT_STATE     HIGH
     #define BUTTON2_WHEN_PRINTING false
-    #define BUTTON2_GCODE         "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
-    #define BUTTON2_DESC          "Preheat for " PREHEAT_1_LABEL
+    #define BUTTON2_GCODE         "M118 Button2 X-1\nG91\nG1 X-1\nG90"
+    #define BUTTON2_DESC          "Button2 X-1"
   #endif
 
-  //#define BUTTON3_PIN -1
+  #define BUTTON3_PIN 42
   #if PIN_EXISTS(BUTTON3)
-    #define BUTTON3_HIT_STATE     LOW
+    #define BUTTON3_HIT_STATE     HIGH
     #define BUTTON3_WHEN_PRINTING false
-    #define BUTTON3_GCODE         "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
-    #define BUTTON3_DESC          "Preheat for " PREHEAT_2_LABEL
+    #define BUTTON3_GCODE         "M118 Button3 Y+1\nG91\nG1 Y+1\nG90"
+    #define BUTTON3_DESC          "Button3 Y+1"
+  #endif
+
+  #define BUTTON4_PIN 65
+  #if PIN_EXISTS(BUTTON4)
+    #define BUTTON4_HIT_STATE     HIGH
+    #define BUTTON4_WHEN_PRINTING false
+    #define BUTTON4_GCODE         "M118 Button4 Y-1\nG91\nG1 Y-1\nG90"
+    #define BUTTON4_DESC          "Button4 Y-1"
+  #endif
+
+  #define BUTTON5_PIN 59
+  #if PIN_EXISTS(BUTTON5)
+    #define BUTTON5_HIT_STATE     HIGH      // State of the triggered button. NC=LOW. NO=HIGH.
+    #define BUTTON5_WHEN_PRINTING false     // Button allowed to trigger during printing?
+    #define BUTTON5_GCODE         "M118 Button5 X+10\nG91\nG1 X+10\nG90"
+    #define BUTTON5_DESC          "Button5 X+10"  // Optional string to set the LCD status
+  #endif
+
+  #define BUTTON6_PIN 64
+  #if PIN_EXISTS(BUTTON6)
+    #define BUTTON6_HIT_STATE     HIGH
+    #define BUTTON6_WHEN_PRINTING false
+    #define BUTTON6_GCODE         "M118 Button6 X-10\nG91\nG1 X-10\nG90"
+    #define BUTTON6_DESC          "Button6 X-10"
+  #endif
+
+  #define BUTTON7_PIN 44
+  #if PIN_EXISTS(BUTTON7)
+    #define BUTTON7_HIT_STATE     HIGH
+    #define BUTTON7_WHEN_PRINTING false
+    #define BUTTON7_GCODE         "M118 Button7 Y+10\nG91\nG1 Y+10\nG90"
+    #define BUTTON7_DESC          "Button7 Y+10"
+  #endif
+
+  #define BUTTON8_PIN 66
+  #if PIN_EXISTS(BUTTON8)
+    #define BUTTON8_HIT_STATE     HIGH
+    #define BUTTON8_WHEN_PRINTING false
+    #define BUTTON8_GCODE         "M118 Button8 Y-10\nG91\nG1 Y-10\nG90"
+    #define BUTTON8_DESC          "Button8 Y-10"
   #endif
 #endif
 
